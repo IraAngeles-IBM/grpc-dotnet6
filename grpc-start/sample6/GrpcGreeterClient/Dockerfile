@@ -13,12 +13,12 @@ COPY . ./
 WORKDIR /app
 
 # Build a release artifact.
-RUN dotnet publish -c Release -o out
+RUN dotnet publish --no-restore  -c Release -o out
 
 # Use Microsoft's official runtime .NET image.
 # https://hub.docker.com/_/microsoft-dotnet-core-aspnet/
 # FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS runtime
-FROM mcr.microsoft.com/dotnet/runtime:6.0.4-alpine3.15-amd64 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 as runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 
