@@ -5,7 +5,7 @@ using GrpcGreeterClient;
 
 #region snippet
 // The port number must match the port of the gRPC server.
-using var channel = GrpcChannel.ForAddress("https://localhost:7042");
+using var channel = GrpcChannel.ForAddress("http://grpc6-service.myum6f5wtpf.svc.cluster.local:7042");
 var client = new Greeter.GreeterClient(channel);
 var reply = await client.SayHelloAsync(
                   new HelloRequest { Name = "GreeterClient" });
