@@ -19,7 +19,7 @@ RUN dotnet publish  --no-restore -c Release -o out
 # https://hub.docker.com/_/microsoft-dotnet-core-aspnet/
 # FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS runtime
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 as runtime
-ENV ASPNETCORE_URLS=https://+:443
+# ENV ASPNETCORE_URLS=https://+:443
 WORKDIR /app
 COPY --from=build /app/out ./
 
